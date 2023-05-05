@@ -1,0 +1,6 @@
+FROM mcr.microsoft.com/windows/servercore:ltsc2016
+WORKDIR /app
+COPY . .
+EXPOSE 1-65535
+EXPOSE 1-65535/udp
+ENTRYPOINT ["/app/tstclnt.exe"]
