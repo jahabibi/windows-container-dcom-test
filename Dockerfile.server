@@ -4,4 +4,9 @@ COPY . .
 EXPOSE 1-65535
 EXPOSE 1-65535/udp
 RUN reg import tstsrvr.REG
+
+# add procmon
+RUN reg add "HKCU\SOFTWARE\Sysinternals\Process Monitor" /v EulaAccepted /t REG_DWORD /d 1
+ADD https://live.sysinternals.com/procmon.exe procmon.exe
+
 ENTRYPOINT ["/app/tstsrvr.exe"]
